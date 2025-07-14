@@ -41,52 +41,59 @@ class PublicacionController extends Controller
         return view('public.publicaciones', compact('publicaciones', 'anios', 'carreras'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
-    }
+        $pub = new Publicacion();
+        $pub->titulo = $request->titulo;
+        $pub->docente = $request->docente;
+        $pub->anio = $request->anio;
+        $pub->carrera = $request->carrera;
+        $pub->enlace = $request->enlace;
+        $pub->activo = 1;
+        $pub->save();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return redirect()->route('admin.dashboard')->with([
+            'mensaje' => 'Publicación agregada correctamente',
+            'tipo' => 'success'
+        ]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $pub = Publicacion::find($id);
+        $pub->titulo = $request->titulo;
+        $pub->docente = $request->docente;
+        $pub->anio = $request->anio;
+        $pub->carrera = $request->carrera;
+        $pub->enlace = $request->enlace;
+        $pub->save();
+        return redirect()->route('admin.dashboard')->with([
+            'mensaje' => 'Publicación actualizada',
+            'tipo' => 'success'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
+    }
+
+    public function low($id){
+        $pub = Publicacion::find($id);
+        $pub->activo = false;
+        $pub->save();
+
+        return redirect()->route('admin.dashboard')->with([
+            'mensaje' => 'Publicación dada de baja',
+            'tipo' => 'warning'
+        ]);
     }
 }

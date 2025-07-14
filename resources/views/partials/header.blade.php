@@ -45,7 +45,7 @@
                 <li class="has-submenu">
                     <a href="#">MEJORA CONTINUA</a>
                     <ul class="submenu">
-                        <li><a href="{{ url('/comites-de-calidad') }}">Comités de calidad</a></li>
+                        <li><a href="{{ url('/comites') }}">Comités de calidad</a></li>
                         <li><a href="{{ url('/acreditacion') }}">Acreditación</a></li>
                     </ul>
                 </li>

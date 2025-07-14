@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PublicacionController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +23,25 @@ Route::get('/oaac', function () {
 Route::get('/olic', function () {
     return view('public.olic');
 });
+
+Route::get('/acreditacion', function (){
+    return view('public.acreditacion');
+});
+
+Route::get('/comites', function () {
+    $json = file_get_contents(public_path('data/comites.json'));
+    $comites = json_decode($json, true);
+    return view('public.comites', compact('comites'));
+});
 Route::get('/publicaciones', [PublicacionController::class, 'index']);
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::post('/admin/publicaciones', [PublicacionController::class, 'store'])->name('publicaciones.store');
+    Route::put('/admin/publicaciones/{id}', [PublicacionController::class, 'update'])->name('publicaciones.update');
+    Route::get('/admin/publicaciones/baja/{id}', [PublicacionController::class, 'low'])->name('publicaciones.low');
+});
