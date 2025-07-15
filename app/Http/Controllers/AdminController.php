@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function dashboard(){
-        $publicaciones = Publicacion::where('activo',true)->orderByDesc('anio')->paginate(10);
-        return view('admin.dashboard', compact('publicaciones'));
+        return view('admin.dashboard');
+    }
+
+    public function publications(){
+        $publicaciones = Publicacion::where('activo',true)->orderByDesc('anio')->paginate(5);
+        return view('admin.publicaciones.index', compact('publicaciones'));
     }
 }

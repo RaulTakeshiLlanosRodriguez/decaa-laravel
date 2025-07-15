@@ -10,7 +10,7 @@
             <div class="contenido">
                 <h4>Se conforman nuevos comités de calidad</h4>
                 <p>Designación de equipos responsables de autoevaluación y mejora continua en todas las escuelas.</p>
-                <a href="{{url('/comites-de-calidad')}}">Leer más</a>
+                <a href="{{url('/comites')}}">Leer más</a>
             </div>
         </div>
 

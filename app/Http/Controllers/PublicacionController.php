@@ -35,8 +35,8 @@ class PublicacionController extends Controller
         $publicaciones = $query->orderByDesc('anio')->paginate(5);
 
         //obtenemos los valores únicos para los filtros
-        $anios = Publicacion::select('anio')->distinct()->pluck('anio');
-        $carreras = Publicacion::select('carrera')->distinct()->pluck('carrera');
+        $anios = Publicacion::where('activo',true)->select('anio')->distinct()->pluck('anio');
+        $carreras = Publicacion::where('activo',true)->select('carrera')->distinct()->pluck('carrera');
 
         return view('public.publicaciones', compact('publicaciones', 'anios', 'carreras'));
     }
@@ -55,7 +55,7 @@ class PublicacionController extends Controller
         $pub->activo = 1;
         $pub->save();
 
-        return redirect()->route('admin.dashboard')->with([
+        return redirect()->route('admin.publications')->with([
             'mensaje' => 'Publicación agregada correctamente',
             'tipo' => 'success'
         ]);
@@ -72,8 +72,8 @@ class PublicacionController extends Controller
         $pub->carrera = $request->carrera;
         $pub->enlace = $request->enlace;
         $pub->save();
-        return redirect()->route('admin.dashboard')->with([
-            'mensaje' => 'Publicación actualizada',
+        return redirect()->route('admin.publications')->with([
+            'mensaje' => 'Publicación actualizada correctamente',
             'tipo' => 'success'
         ]);
     }
@@ -83,7 +83,12 @@ class PublicacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pub = Publicacion::find($id);
+        $pub->delete();
+        return redirect()->route('admin.publications')->with([
+            'mensaje' => 'Publicación eliminada correctamente',
+            'tipo' => 'success'
+        ]);
     }
 
     public function low($id){
@@ -91,7 +96,7 @@ class PublicacionController extends Controller
         $pub->activo = false;
         $pub->save();
 
-        return redirect()->route('admin.dashboard')->with([
+        return redirect()->route('admin.publications')->with([
             'mensaje' => 'Publicación dada de baja',
             'tipo' => 'warning'
         ]);

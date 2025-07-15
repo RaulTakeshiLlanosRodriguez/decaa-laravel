@@ -36,7 +36,7 @@
                     {{ $pub->carrera }}
                 </div>
                 <h4>{{ $pub->titulo }}</h4>
-                <p><strong>Docente:</strong> {{ $pub->docente }}</p>
+                <p><strong>Docente(s):</strong> {{ $pub->docente }}</p>
                 <p><strong>Año:</strong> {{ $pub->anio }}</p>
                 <a href="{{ $pub->enlace }}" class="btn-repositorio" target="_blank">Ver en Repositorio</a>
             </div>

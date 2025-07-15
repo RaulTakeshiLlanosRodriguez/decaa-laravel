@@ -40,8 +40,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin', fn () => redirect()->route('admin.publications'))->name('admin.dashboard');;
+    Route::get('/admin/publicaciones', [AdminController::class, 'publications'])->name('admin.publications');
     Route::post('/admin/publicaciones', [PublicacionController::class, 'store'])->name('publicaciones.store');
     Route::put('/admin/publicaciones/{id}', [PublicacionController::class, 'update'])->name('publicaciones.update');
+    Route::delete('/admin/publicaciones/delete/{id}', [PublicacionController::class, 'destroy'])->name('publicaciones.destroy');
     Route::get('/admin/publicaciones/baja/{id}', [PublicacionController::class, 'low'])->name('publicaciones.low');
 });

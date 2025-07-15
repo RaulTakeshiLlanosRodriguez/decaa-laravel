@@ -872,6 +872,12 @@ h3,h4{
     color: white;
 }
 
+.titulo-panel{
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /*seccion responsive*/
 @media (max-width: 768px) {
   .menu-toggle {
