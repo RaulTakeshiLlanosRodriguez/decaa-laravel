@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @section('content')
-<div class="container mt-4">
+    <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h3>Investigaciones Docentes</h3>
             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar</button>
@@ -24,7 +24,8 @@
                         <td>{{ $pub->docente }}</td>
                         <td>{{ $pub->anio }}</td>
                         <td>{{ $pub->carrera }}</td>
-                        <td><a href="{{ $pub->enlace }}" target="_blank">Ver</a></td>
+                        <td class="text-center"><a href="{{ $pub->enlace }}" target="_blank" class="btn btn-sm btn-info"><i
+                                    class="fas fa-eye"></i>Ver</a></td>
                         <td>
                             <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#modalEditar{{ $pub->id }}"><i class="fas fa-pencil"></i></button>

@@ -1,45 +1,48 @@
 @extends('admin.dashboard')
-
 @section('content')
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3>Comités de Calidad</h3>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar</button>
+            <h3>{{ 'Miembros del Comité: ' . $comite->carrera }}</h3>
+            <div>
+                <a href="{{ route('admin.comites') }}" class="btn btn-secondary me-2">Cancelar</a>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar</button>
+            </div>
         </div>
         <table class="table table-bordered table-hover bg-white tabla-investigaciones">
             <thead class="table-light">
                 <tr>
-                    <th>CARRERA</th>
+                    <th>ROL</th>
+                    <th>INTEGRANTE</th>
                     <th>ACCIONES</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($comites as $comite)
+                @foreach ($miembros as $miembro)
                     <tr>
-                        <td>{{ $comite->carrera }}</td>
-                        <td style="text-align: center;">
-                            <a href="{{ route('miembros.index', ['comite' => $comite->id]) }}" class="btn btn-sm btn-info">
-                                <i class="fas fa-users"></i> Miembros
-                            </a>
+                        <td class="text-center">{{ $miembro->rol }}</td>
+                        <td>{{ $miembro->nombre }}</td>
+                        <td class="text-center">
                             <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#modalEditar{{ $comite->id }}"><i class="fas fa-pencil"></i></button>
-                            <button class="btn btn-sm btn-danger btn-eliminar" data-id="{{ $comite->id }}"><i
+                                data-bs-target="#modalEditar{{ $miembro->id }}"><i class="fas fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger btn-eliminar" data-id="{{ $miembro->id }}"><i
                                     class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                     {{-- Modal Editar --}}
-                    <div class="modal fade" id="modalEditar{{ $comite->id }}" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="modalEditar{{ $miembro->id }}" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="{{ route('comites.update', $comite->id) }}" method="POST">
+                                <form action="{{ route('publicaciones.update', $miembro->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Editar Comité</h5>
+                                        <h5 class="modal-title">Editar Miembro</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <input name="carrera" class="form-control mb-3" value="{{ $comite->carrera }}"
+                                        <input name="rol" class="form-control mb-3" value="{{ $miembro->rol }}"
+                                            required>
+                                        <input name="nombre" class="form-control mb-3" value="{{ $miembro->nombre }}"
                                             required>
                                     </div>
                                     <div class="modal-footer">
@@ -54,20 +57,20 @@
         </table>
 
         <!-- Paginación -->
-        @if ($comites->hasPages())
+        @if ($miembros->hasPages())
             <div class="paginacion">
-                @if ($comites->onFirstPage())
+                @if ($miembros->onFirstPage())
                     <button class="disabled" disabled>Anterior</button>
                 @else
-                    <a href="{{ $comites->previousPageUrl() }}"><button>Anterior</button></a>
+                    <a href="{{ $miembros->previousPageUrl() }}"><button>Anterior</button></a>
                 @endif
 
                 <span style="align-self:center;">
-                    Página {{ $comites->currentPage() }} de {{ $comites->lastPage() }}
+                    Página {{ $miembros->currentPage() }} de {{ $miembros->lastPage() }}
                 </span>
 
-                @if ($comites->hasMorePages())
-                    <a href="{{ $comites->nextPageUrl() }}"><button>Siguiente</button></a>
+                @if ($miembros->hasMorePages())
+                    <a href="{{ $miembros->nextPageUrl() }}"><button>Siguiente</button></a>
                 @else
                     <button class="disabled" disabled>Siguiente</button>
                 @endif
@@ -80,7 +83,7 @@
                 <form action="{{ route('comites.store') }}" method="POST">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title">Agregar Comité</h5>
+                        <h5 class="modal-title">Agregar Miembr</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
@@ -124,7 +127,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         const form = document.getElementById('form-eliminar');
-                        form.action = `comites/delete/${id}`;
+                        form.action = `miembros/delete/${id}`;
                         form.submit();
                     }
                 });

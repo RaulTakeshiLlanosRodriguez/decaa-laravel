@@ -12,12 +12,12 @@
                 <p>Designación de equipos responsables de autoevaluación y mejora continua en todas las escuelas.</p>
                 <div id="comites-container">
                     @foreach ($comites as $comite)
-                        <h4 class="titulo-carrera">{{ strtoupper($comite['carrera']) }}</h4>
+                        <h4 class="titulo-carrera">{{ strtoupper($comite->carrera) }}</h4>
                         <table class="tabla-comite">
-                            @foreach ($comite['miembros'] as $miembro)
+                            @foreach ($comite->miembros as $miembro)
                                 <tr>
-                                    <td>{{ $miembro['rol'] }}</td>
-                                    <td>{{ $miembro['nombre'] }}</td>
+                                    <td>{{ $miembro->rol }}</td>
+                                    <td>{{ $miembro->nombre }}</td>
                                 </tr>
                             @endforeach
                         </table>

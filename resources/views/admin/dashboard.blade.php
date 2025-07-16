@@ -27,8 +27,8 @@
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link {{ request()->is('admin/comites*') ? 'bg-white text-danger rounded px-3 py-2' : 'text-white'}}"
-                            href="{{ route('admin.dashboard') }}">
+                        <a class="nav-link {{ request()->is('admin/comites*') ? 'bg-white text-danger rounded px-3 py-2' : 'text-white' }}"
+                            href="{{ route('admin.comites') }}">
                             <i class="fas fa-users me-2"></i>Comités
                         </a>
                     </li>
@@ -36,7 +36,7 @@
             </div>
             <div class="mb-3">
                 <a href="{{ route('logout') }}" class="btn btn-outline-light"><i class="fas fa-sign-out-alt me-1"></i>
-                Cerrar sesión</a>
+                    Cerrar sesión</a>
             </div>
         </nav>
 

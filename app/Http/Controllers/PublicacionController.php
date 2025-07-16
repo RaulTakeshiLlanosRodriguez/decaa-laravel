@@ -65,7 +65,7 @@ class PublicacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pub = Publicacion::find($id);
+        $pub = Publicacion::findOrFail($id);
         $pub->titulo = $request->titulo;
         $pub->docente = $request->docente;
         $pub->anio = $request->anio;
@@ -83,7 +83,7 @@ class PublicacionController extends Controller
      */
     public function destroy($id)
     {
-        $pub = Publicacion::find($id);
+        $pub = Publicacion::findOrFail($id);
         $pub->delete();
         return redirect()->route('admin.publications')->with([
             'mensaje' => 'Publicación eliminada correctamente',
@@ -91,8 +91,9 @@ class PublicacionController extends Controller
         ]);
     }
 
-    public function low($id){
-        $pub = Publicacion::find($id);
+    public function low($id)
+    {
+        $pub = Publicacion::findOrFail($id);
         $pub->activo = false;
         $pub->save();
 
