@@ -51,7 +51,7 @@ class ComiteController extends Controller
         $comite = Comite::findOrFail($id);
         $comite->delete();
         return redirect()->route('admin.comites')->with([
-            'mensaje' => 'Comité eliminada correctamente',
+            'mensaje' => 'Comité eliminado correctamente',
             'tipo' => 'success'
         ]);
     }

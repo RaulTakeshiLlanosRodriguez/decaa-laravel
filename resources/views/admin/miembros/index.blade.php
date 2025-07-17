@@ -32,7 +32,7 @@
                     <div class="modal fade" id="modalEditar{{ $miembro->id }}" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="{{ route('publicaciones.update', $miembro->id) }}" method="POST">
+                                <form action="{{ route('miembros.update', $miembro->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="modal-header">
@@ -80,14 +80,16 @@
     <div class="modal fade" id="modalAgregar" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{ route('comites.store') }}" method="POST">
+                <form action="{{ route('miembros.store') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="comite_id" value="{{ $comite->id }}">
                     <div class="modal-header">
-                        <h5 class="modal-title">Agregar Miembr</h5>
+                        <h5 class="modal-title">Agregar Miembro</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <input name="carrera" class="form-control mb-3" placeholder="Comité" required>
+                        <input name="rol" class="form-control mb-3" placeholder="Rol" required>
+                        <input name="nombre" class="form-control mb-3" placeholder="Integrante" required>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Guardar</button>

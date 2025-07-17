@@ -59,4 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/comites/delete/{id}', [ComiteController::class, 'destroy'])->name('comites.destroy');
 
     Route::get('/admin/miembros/{comite}', [MiembroController::class, 'index'])->name('miembros.index');
+    Route::post('/admin/miembros', [MiembroController::class, 'store'])->name('miembros.store');
+    Route::put('/admin/miembros/{id}', [MiembroController::class, 'update'])->name('miembros.update');
+    Route::delete('/admin/miembros/delete/{id}', [MiembroController::class, 'destroy'])->name('miembros.destroy');
 });
