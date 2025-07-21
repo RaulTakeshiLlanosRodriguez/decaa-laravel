@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comite;
+use App\Models\Indicador;
 use App\Models\Publicacion;
 use Illuminate\Http\Request;
 
@@ -20,5 +21,10 @@ class AdminController extends Controller
     public function comites(){
         $comites = Comite::paginate(8);
         return view('admin.comites.index', compact('comites'));
+    }
+
+    public function indicadores(){
+        $indicadores = Indicador::paginate(8);
+        return view('admin.indicadores.index', compact('indicadores'));
     }
 }

@@ -37,9 +37,10 @@
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="#">INVESTIGACIONES</a>
+                    <a href="#">INNOVACIONES</a>
                     <ul class="submenu">
-                        <li><a href="{{ url('/publicaciones') }}">Publicaciones</a></li>
+                        <li><a href="{{ url('/innovaciones') }}">Publicaciones</a></li>
+                        <li><a href="{{ url('/publicaciones') }}">Investigaciones</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">
@@ -57,7 +58,7 @@
 
     <section class="slider-solo-imagenes">
         <div class="slider-track">
-            <img src="https://conferences.bham.ac.uk/wp-content/uploads/2022/02/uob-conferences-jun19-365.jpg" alt="foto 1">
+            <img src="{{ asset('assets/foto1.jpg') }}" alt="foto 1">
             <img src="https://paproviders.org/wp-content/uploads/2015/09/Committee-Meeting-Round-Table.jpg" alt="foto 2">
             <img src="https://www.syu.ac.kr/eng/wp-content/uploads/sites/81/2023/08/1.-Sahmyook-Universitys-International-Academic-Conference-%E2%80%982023-ICISAA-completed-1-scaled.jpg" alt="foto 3">
         </div>

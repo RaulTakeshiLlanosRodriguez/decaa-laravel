@@ -32,9 +32,15 @@
                             <i class="fas fa-users me-2"></i>Comités
                         </a>
                     </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link {{ request()->is('admin/indicadores*') ? 'bg-white text-danger rounded px-3 py-2' : 'text-white' }}"
+                            href="{{ route('admin.indicadores') }}">
+                            <i class="fas fa-chart-bar me-2"></i>Indicadores
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 text-center">
                 <a href="{{ route('logout') }}" class="btn btn-outline-light"><i class="fas fa-sign-out-alt me-1"></i>
                     Cerrar sesión</a>
             </div>

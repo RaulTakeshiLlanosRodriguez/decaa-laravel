@@ -8,6 +8,12 @@ export function indicadores() {
 
     progress.style.stroke = color;
 
+    if (target === 0) {
+      number.textContent = 0;
+      progress.style.strokeDashoffset = 408
+      return;
+    }
+
     let count = 0;
     const duration = 2000;
     const stepTime = Math.floor(duration / target);
