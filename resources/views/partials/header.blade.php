@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     {{-- JS --}}
     <script type="module" src="{{ asset('js/main-simple.js') }}"></script>
 </head>
+
 <body>
     <header class="header">
         <div class="logo-area">
@@ -30,9 +32,11 @@
                     <a href="#">NOSOTROS</a>
                     <ul class="submenu">
                         <li><a href="{{ url('/decaa') }}">Acerca del DECAA</a></li>
-                        <li><a href="{{ url('/oseil') }}">Oficina de Seguimiento al Egresado y de Inserción Laboral</a></li>
+                        <li><a href="{{ url('/oseil') }}">Oficina de Seguimiento al Egresado y de Inserción Laboral</a>
+                        </li>
                         <li><a href="{{ url('/ogc') }}">Oficina de Gestión de Calidad</a></li>
-                        <li><a href="{{ url('/oaac') }}">Oficina de Autoevaluación y Acreditación de la Calidad</a></li>
+                        <li><a href="{{ url('/oaac') }}">Oficina de Autoevaluación y Acreditación de la Calidad</a>
+                        </li>
                         <li><a href="{{ url('/olic') }}">Oficina de Licenciamiento</a></li>
                     </ul>
                 </li>
@@ -59,7 +63,9 @@
     <section class="slider-solo-imagenes">
         <div class="slider-track">
             <img src="{{ asset('assets/foto1.jpg') }}" alt="foto 1">
-            <img src="https://paproviders.org/wp-content/uploads/2015/09/Committee-Meeting-Round-Table.jpg" alt="foto 2">
-            <img src="https://www.syu.ac.kr/eng/wp-content/uploads/sites/81/2023/08/1.-Sahmyook-Universitys-International-Academic-Conference-%E2%80%982023-ICISAA-completed-1-scaled.jpg" alt="foto 3">
+            <img src="https://paproviders.org/wp-content/uploads/2015/09/Committee-Meeting-Round-Table.jpg"
+                alt="foto 2">
+            <img src="https://www.syu.ac.kr/eng/wp-content/uploads/sites/81/2023/08/1.-Sahmyook-Universitys-International-Academic-Conference-%E2%80%982023-ICISAA-completed-1-scaled.jpg"
+                alt="foto 3">
         </div>
     </section>

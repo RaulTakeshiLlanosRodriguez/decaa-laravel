@@ -12,14 +12,16 @@
             <select name="anio">
                 <option value="">Todos los años</option>
                 @foreach ($anios as $anio)
-                    <option value="{{ $anio }}" {{ request('anio') == $anio ? 'selected' : '' }}>{{ $anio }}</option>
+                    <option value="{{ $anio }}" {{ request('anio') == $anio ? 'selected' : '' }}>{{ $anio }}
+                    </option>
                 @endforeach
             </select>
 
             <select name="carrera">
                 <option value="">Todas las carreras</option>
                 @foreach ($carreras as $carrera)
-                    <option value="{{ $carrera }}" {{ request('carrera') == $carrera ? 'selected' : '' }}>{{ $carrera }}</option>
+                    <option value="{{ $carrera }}" {{ request('carrera') == $carrera ? 'selected' : '' }}>
+                        {{ $carrera }}</option>
                 @endforeach
             </select>
 
@@ -30,9 +32,13 @@
     <section class="listado-publicaciones">
         @forelse ($publicaciones as $pub)
             <div class="publicacion">
-                <div class="etiqueta-carrera
-                    {{ str_contains(strtolower($pub->carrera), 'educación') ? 'celeste' :
-                       (str_contains(strtolower($pub->carrera), 'ingeniería') ? 'guinda' : 'verde') }}">
+                <div
+                    class="etiqueta-carrera
+                    {{ str_contains(strtolower($pub->carrera), 'educación')
+                        ? 'celeste'
+                        : (str_contains(strtolower($pub->carrera), 'ingeniería')
+                            ? 'guinda'
+                            : 'verde') }}">
                     {{ $pub->carrera }}
                 </div>
                 <h4>{{ $pub->titulo }}</h4>

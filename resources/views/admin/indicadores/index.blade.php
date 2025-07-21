@@ -39,10 +39,10 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <input name="descripcion" class="form-control mb-3" value="{{ $indicador->descripcion }}"
-                                            required>
-                                        <input name="cantidad" type="number" min="0" class="form-control mb-3" value="{{ $indicador->cantidad }}"
-                                            required>
+                                        <input name="descripcion" class="form-control mb-3"
+                                            value="{{ $indicador->descripcion }}" required>
+                                        <input name="cantidad" type="number" min="0" class="form-control mb-3"
+                                            value="{{ $indicador->cantidad }}" required>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Actualizar</button>
@@ -87,7 +87,8 @@
                     </div>
                     <div class="modal-body">
                         <input name="descripcion" class="form-control mb-3" placeholder="Descripcion" required>
-                        <input name="cantidad" type="number" min="0" class="form-control mb-3" placeholder="Cantidad" required>
+                        <input name="cantidad" type="number" min="0" class="form-control mb-3"
+                            placeholder="Cantidad" required>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Guardar</button>
