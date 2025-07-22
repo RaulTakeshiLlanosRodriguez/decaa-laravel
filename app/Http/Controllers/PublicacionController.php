@@ -35,8 +35,8 @@ class PublicacionController extends Controller
         $publicaciones = $query->orderByDesc('anio')->paginate(5);
 
         //obtenemos los valores únicos para los filtros
-        $anios = Publicacion::where('activo',true)->select('anio')->distinct()->pluck('anio');
-        $carreras = Publicacion::where('activo',true)->select('carrera')->distinct()->pluck('carrera');
+        $anios = Publicacion::where('activo', true)->select('anio')->distinct()->pluck('anio');
+        $carreras = Publicacion::where('activo', true)->select('carrera')->distinct()->pluck('carrera');
 
         return view('public.publicaciones', compact('publicaciones', 'anios', 'carreras'));
     }
