@@ -114,7 +114,7 @@
                 const id = this.dataset.id;
                 Swal.fire({
                     title: '¿Estás seguro?',
-                    text: "La publicación será dada de baja.",
+                    text: "El comité será dado de baja.",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',

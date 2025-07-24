@@ -63,7 +63,7 @@ class MiembroController extends Controller
         $miembro->delete();
 
         return redirect()->route('miembros.index', $comite_id)->with([
-            'mensaje' => 'Miembro actualizado correctamente',
+            'mensaje' => 'Miembro eliminado correctamente',
             'tipo' => 'success'
         ]);
     }

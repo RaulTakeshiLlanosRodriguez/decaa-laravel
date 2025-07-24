@@ -119,7 +119,7 @@
                 const id = this.dataset.id;
                 Swal.fire({
                     title: '¿Estás seguro?',
-                    text: "La publicación será dada de baja.",
+                    text: "El miembro será dado de baja.",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
@@ -129,7 +129,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         const form = document.getElementById('form-eliminar');
-                        form.action = `miembros/delete/${id}`;
+                        form.action = `{{ url('/admin/miembros/delete') }}/${id}`;
                         form.submit();
                     }
                 });

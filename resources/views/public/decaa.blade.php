@@ -31,7 +31,7 @@
                             disposición legal expresa.</p>
                         <p>El modelo de calidad para la acreditación de las escuelas profesionales y de la institución se
                             rige por
-                            el enfoque sistémico, y por los principios de calidad total, como un marco general; a travez del
+                            el enfoque sistémico, y por los principios de calidad total, como un marco general; a traves del
                             cual se
                             representan todas las interacciones de los procesos que tienen lugar en la Universidad y que le
                             permite
